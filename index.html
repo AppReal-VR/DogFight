@@ -29,11 +29,16 @@
 	fbq('init', '1292573627777219');
 	fbq('track', 'PageView');
 
-	var gameName = document.getElementById("header_title_top").innerText;
-	gameName = gameName.replace(/\s+/g, '');
-		gameName = gameName+'_pm_PageView';
 
-	fbq('track', gameName);
+	function sendView() {
+		var gameName = document.getElementById("header_title_top").innerText;
+		gameName = gameName.replace(/\s+/g, '');
+			gameName = gameName+'_pm_PageView';
+
+		fbq('track', gameName);
+	}
+	
+	document.addEventListener("DOMContentLoaded", sendView);
 </script>
 <noscript><img height="1" width="1" style="display:none"
 	src="https://www.facebook.com/tr?id=1292573627777219&ev=PageView&noscript=1"
